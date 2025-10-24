@@ -1,0 +1,15 @@
+{
+    "BaseSkin": true,
+    "PerkLevel": 0,
+    "SkinGO": "skintrapp",
+    "SkinID": "tripperbase",
+    "SkinName": "Default",
+    "SkinOrder": 0,
+    "SkinSubclass": "trapper",
+    "Sku": "",
+    "SpritePortrait": "trippPortrait",
+    "SpritePortraitGrande": "trippPortraitGrande",
+    "SpriteSilueta": "trippSilueta",
+    "SpriteSiluetaGrande": "trippSiluetaGrande",
+    "SteamStat": ""
+}

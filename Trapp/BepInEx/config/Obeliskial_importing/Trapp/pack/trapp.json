@@ -1,0 +1,15 @@
+{
+    "Card0": "trappertripwire",
+    "Card1": "aimedshot",
+    "Card2": "slice",
+    "Card3": "detection",
+    "Card4": "puncture",
+    "Card5": "",
+    "CardSpecial0": "",
+    "CardSpecial1": "",
+    "PackClass": "scout",
+    "PackID": "trapp",
+    "PackName": "Trapp",
+    "PerkList": [],
+    "RequiredClass": "tripper"
+}

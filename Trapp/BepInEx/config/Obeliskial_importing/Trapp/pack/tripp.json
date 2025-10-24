@@ -1,0 +1,15 @@
+{
+    "Card0": "trappertripwire",
+    "Card1": "intimidate",
+    "Card2": "intercept",
+    "Card3": "hamstring",
+    "Card4": "throwbolas",
+    "Card5": "",
+    "CardSpecial0": "",
+    "CardSpecial1": "",
+    "PackClass": "warrior",
+    "PackID": "tripp",
+    "PackName": "Tripp",
+    "PerkList": [],
+    "RequiredClass": "trapper"
+}
