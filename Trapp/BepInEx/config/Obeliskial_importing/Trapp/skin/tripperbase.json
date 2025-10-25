@@ -7,9 +7,9 @@
     "SkinOrder": 0,
     "SkinSubclass": "trapper",
     "Sku": "",
-    "SpritePortrait": "trippPortrait",
-    "SpritePortraitGrande": "trippPortraitGrande",
-    "SpriteSilueta": "trippSilueta",
-    "SpriteSiluetaGrande": "trippSiluetaGrande",
+    "SpritePortrait": "trappPortrait",
+    "SpritePortraitGrande": "trappPortraitGrande",
+    "SpriteSilueta": "trappSilueta",
+    "SpriteSiluetaGrande": "trappSiluetaGrande",
     "SteamStat": ""
 }

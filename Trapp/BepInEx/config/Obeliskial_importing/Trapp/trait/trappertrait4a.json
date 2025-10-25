@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "Slow on enemies can stack. When you apply Slow, deal 5 Piercing damage to a random enemy. (8 times/turn)",
+    "Description": "Slow on monsters can stack. When you apply Slow, deal 5 Piercing damage to a random enemy. (8 times/turn)",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,

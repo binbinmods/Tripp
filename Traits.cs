@@ -108,13 +108,13 @@ namespace Tripp
             {
                 // trait 4a;
                 // When you apply Slow, deal 5 Piercing damage to a random enemy.
-                if (_auxString.ToLower() == "slow") // && CanIncrementTraitActivations(traitId))
+                if (_auxString.ToLower() == "slow" && CanIncrementTraitActivations(traitId))
                 {
                     LogDebug($"Handling Trait {traitId}: {traitName}");
                     Character randomEnemy = GetRandomCharacter(teamNpc);
                     int damage = _character.DamageWithCharacterBonus(5, Enums.DamageType.Piercing, Enums.CardClass.None);
                     randomEnemy?.IndirectDamage(Enums.DamageType.Piercing, damage);
-                    // IncrementTraitActivations(traitId);
+                    IncrementTraitActivations(traitId);
                 }
             }
 
@@ -165,7 +165,7 @@ namespace Tripp
                 // Mark on enemies decreases speed by 1 per charge. 
 
                 // trait 4a;
-
+                // Slow on enemies can stack
                 // trait 4b:
 
                 case "mark":
@@ -176,29 +176,16 @@ namespace Tripp
                         __result.CharacterStatAbsoluteValuePerStack = -1;
                     }
                     break;
-                case "stealth":
-                    traitOfInterest = trait2b;
-                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Heroes))
+                case "slow":
+                    traitOfInterest = trait4a;
+                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Monsters))
                     {
+                        __result.GainCharges = true;
                     }
                     break;
             }
         }
 
-        // [HarmonyPrefix]
-        // [HarmonyPatch(typeof(Character), "HealAuraCurse")]
-        // public static void HealAuraCursePrefix(ref Character __instance, AuraCurseData AC, ref int __state)
-        // {
-        //     LogInfo($"HealAuraCursePrefix {subclassName}");
-        //     string traitOfInterest = trait4b;
-        //     if (IsLivingHero(__instance) && __instance.HaveTrait(traitOfInterest) && AC == GetAuraCurseData("stealth"))
-        //     {
-        //         __state = Mathf.FloorToInt(__instance.GetAuraCharges("stealth") * 0.25f);
-        //         // __instance.SetAuraTrait(null, "stealth", 1);
-
-        //     }
-
-        // }
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(Character), "BonusResists")]
@@ -212,11 +199,11 @@ namespace Tripp
         {
             // trait4b:
             // Enemies lose 1% all resistances for every 2 speed below 0. 
-            LogInfo($"HealAuraCursePrefix {subclassName}");
+            // LogInfo($"HealAuraCursePrefix {subclassName}");
             string traitOfInterest = trait4b;
             if (IsLivingNPC(__instance) && AtOManager.Instance.TeamHaveTrait(traitOfInterest))
             {
-                LogDebug($"Applying {traitOfInterest} BonusResists reduction to {__instance.Id} with speeds {string.Join(",", __instance.GetSpeed())}");
+                // LogDebug($"Applying {traitOfInterest} BonusResists reduction to {__instance.Id} with speeds {string.Join(",", __instance.GetSpeed())}");
                 int speed = __instance.GetSpeed()[2];
                 int resistReduction = Mathf.FloorToInt(Mathf.Abs(Mathf.Min(speed, 0)) / 2f);
                 __result -= resistReduction;
